@@ -1,0 +1,41 @@
+<dependencies>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.30</version>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version>
+    </dependency>
+</dependencies>
+
+
+LoggingExample.java
+package com.example;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class LoggingExample {
+    private static final Logger logger = LoggerFactory.getLogger(LoggingExample.class);
+
+    public static void main(String[] args) {
+        logger.error("This is an error message");
+        logger.warn("This is a warning message");
+    }
+}
+
+
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

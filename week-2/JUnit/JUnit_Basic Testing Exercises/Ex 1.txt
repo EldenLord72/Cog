@@ -1,0 +1,37 @@
+XML
+<!-- pom.xml -->
+<dependencies>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+Main Class
+// src/main/java/com/example/Calculator.java
+package com.example;
+
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+Test Class
+// src/test/java/com/example/CalculatorTest.java
+package com.example;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class CalculatorTest {
+
+    @Test
+    public void testAdd() {
+        Calculator calc = new Calculator();
+        int result = calc.add(2, 3);
+        assertEquals(5, result);
+    }
+}
